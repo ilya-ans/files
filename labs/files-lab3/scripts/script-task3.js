@@ -1,4 +1,17 @@
+
 function calculate_task3(task3_number, a3, b3){
+
+	//Проверяет является ли строка пустой
+	if (task3_number === ""){
+		return "";
+	}
+
+	if (isNaN(task3_number)){
+		return "Проверьте введенное значение!";
+	} else{
+		task3_number = Number(task3_number);
+	}
+
 	if (task3_number <= 0){
 		return (a3 + 0.5 * Math.E**(-task3_number));
 	}else if(task3_number < 4){
@@ -15,5 +28,6 @@ var a3 = 7.1;
 var b3 = 3.2;
 
 task3_submit.onclick = function () {
-	task3_result.textContent = calculate_task3(Number(task3_value.value), a3, b3);
+	task3_result.textContent = calculate_task3(task3_value.value, a3, b3);
 }
+

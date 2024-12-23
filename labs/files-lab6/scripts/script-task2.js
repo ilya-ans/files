@@ -71,9 +71,14 @@ function stringToArray(stringOfNumbersLocal){
 
 // Основная функция
 function calculate_task2(stringOfNumbers){
-	
+
+	//Проверяет является ли строка пустой
+	if (stringOfNumbers === ""){
+		return "";
+	}
+
 	var arrayOfNumbers = stringToArray(stringOfNumbers);
-	
+
 	var indexOfMinColumn;
 	var indexOfMaxColumn;
 	var maxNumber;
@@ -87,6 +92,24 @@ function calculate_task2(stringOfNumbers){
 	var iterationCounterM = 0;
 	var iterationCounterN = 0;
 	
+	//Проверка строк на одинаковую длину и элементов строк на то, является ли она числом
+	while (iterationCounterM < lengthM){
+		if (lengthN !== arrayOfNumbers[iterationCounterM].length){
+			return "Разное количество элементов в строках!";
+		}
+		while (iterationCounterN < lengthN){
+			if (isNaN(arrayOfNumbers[iterationCounterM][iterationCounterN])){
+				return "Проверьте введенные значения!";
+			}
+			iterationCounterN++;
+		}
+		iterationCounterN = 0;
+		iterationCounterM++;
+	}
+
+	iterationCounterM = 0;
+	iterationCounterN = 0;
+
 	// Цикл для нахождения индексов столбцов, в которых находятся минимальный и максимальный элементы массива 
 	while (iterationCounterM < lengthM){
 		while (iterationCounterN < lengthN){

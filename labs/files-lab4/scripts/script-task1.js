@@ -1,15 +1,44 @@
+
 function calculate_task1(stringOfNumbers){
 	
+	//Проверка является ли строка пустой
+	if (stringOfNumbers === ""){
+		return "";
+	}
+
 	var arrayOfNumbers = stringOfNumbers.split(" ");
 	var iterationCounter = 0;
 	var negativeNumbersSum = 0;
 	var negativeNumbersCounter = 0;
 	var arithmeticMean;
 	
+	while (iterationCounter < arrayOfNumbers.length){
+		if (arrayOfNumbers[iterationCounter] === ""){
+			return "Введите числа через один пробел, без пробелов в начале и конце!";
+		}
+		iterationCounter++;
+	}
+
+	iterationCounter = 0;
+
+	if (arrayOfNumbers.length !== 10){
+		return "Проверьте количество введенных чисел!";
+	}
+
 	while (iterationCounter < 10){
-		if (Number(arrayOfNumbers[iterationCounter]) < 0){
-			negativeNumbersSum += Number(arrayOfNumbers[iterationCounter]);
-			negativeNumbersCounter += 1;
+
+		if (isNaN(arrayOfNumbers[iterationCounter])){
+			return "Проверьте введенные значения!";
+		} else{
+			arrayOfNumbers[iterationCounter] = Number(arrayOfNumbers[iterationCounter]);
+			if (Number.isInteger(arrayOfNumbers[iterationCounter])){
+				return "Вводимые значения должны быть вещественными!";
+			}
+		}
+
+		if (arrayOfNumbers[iterationCounter] < 0){
+			negativeNumbersSum += arrayOfNumbers[iterationCounter];
+			negativeNumbersCounter++;
 		}
 		iterationCounter++;
 	}

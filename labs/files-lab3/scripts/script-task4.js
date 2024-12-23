@@ -1,4 +1,17 @@
-function calculate_task4_v2(task4_number, a4, b4){
+
+function calculate_task4(task4_number, a4, b4){
+
+	//Проверяет является ли строка пустой
+	if (task4_number === ""){
+		return "";
+	}
+
+	if (isNaN(task4_number)){
+		return "Проверьте введенное значение!";
+	} else{
+		task4_number = Number(task4_number);
+	}
+
 	var y;
 	switch(task4_number){
 		case -1:
@@ -23,5 +36,6 @@ var a4 = 7.1;
 var b4 = 3.2;
 
 task4_submit.onclick = function () {
-	task4_result.textContent = calculate_task4_v2(Number(task4_value.value), a4, b4);
+	task4_result.textContent = calculate_task4(task4_value.value, a4, b4);
 }
+

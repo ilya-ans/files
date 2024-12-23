@@ -1,7 +1,23 @@
+
 function calculate_tons(kilos, koef) {
+
+	//Проверяет является ли строка пустой
+	if (kilos === ""){
+		return "";
+	}
+
+	if (isNaN(kilos)){
+		return "Проверьте введенное значение!";
+	} else{
+		kilos = Number(kilos);
+		if (kilos < 0){
+			return "Вводимое значение не может быть отрицательным числом!";
+		}
+	}
+
 	var tons;
-	tons = Math.floor(Number(kilos)/koef);
-	return "В " + Number(kilos) + " килограммах содержится " + tons + " тонн";
+	tons = Math.floor(kilos/koef);
+	return "В " + kilos + " килограммах содержится " + tons + " тонн";
 }
 
 var read_kilos_value = document.querySelector(".read_kilos_value");
